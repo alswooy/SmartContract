@@ -4,23 +4,23 @@ const fs = require('fs');
 const solc = require('solc');
 const path = require("path");
 const os = require("os");
-const { logTransaction } = require(path.join(os.homedir(),"besu-network/smartcontract/utils/txLogger.js"));
+const { logTransaction } = require(path.join(os.homedir(),"Desktop/besu-network/smartcontract/utils/txLogger.js"));
 
 // ================= [설정 영역] ================
-require("dotenv").config({ path: path.join(os.homedir(), "besu-network/smartcontract/.env") });
+require("dotenv").config({ path: path.join(os.homedir(), "Desktop/besu-network/smartcontract/.env") });
 const RPC_URL = process.env.RPC_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const CONTRACT_PATH = path.join(
   os.homedir(),
-  "besu-network/smartcontract/contract/SimpleString.sol"
+  "Desktop/besu-network/smartcontract/contract/SimpleString.sol"
 );
 const LOG_FILE =path.join(
   os.homedir(),
-  "besu-network/smartcontract/logs/string-set-log.txt"
+  "Desktop/besu-network/smartcontract/logs/string-set-log.txt"
 );
 const ADDRESS_FILE = path.join(
   os.homedir(),
-  "besu-network/smartcontract/deploy/contract-address-string.json"
+  "Desktop/besu-network/smartcontract/deploy/contract-address-string.json"
 );
 
 async function main() {

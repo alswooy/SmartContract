@@ -1,0 +1,29 @@
+[
+    {
+        "anonymous": false,
+        "inputs": [
+        { "indexed": false, "internalType": "string", "name": "oldValue", "type": "string" },
+        { "indexed": false, "internalType": "string", "name": "newValue", "type": "string" }
+        ],
+        "name": "DataUpdated",
+        "type": "event"
+    },
+    {
+        "inputs": [
+        { "internalType": "string", "name": "_value", "type": "string" }
+        ],
+        "name": "set",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "get",
+        "outputs": [
+        { "internalType": "string", "name": "", "type": "string" }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

@@ -5,16 +5,16 @@ const solc = require("solc");
 const path = require("path");
 const os = require("os");
 // ================= [설정 영역] =================
-require("dotenv").config({ path: path.join(os.homedir(), "besu-network/smartcontract/.env") });
+require("dotenv").config({ path: path.join(os.homedir(), "Desktop/besu-network/smartcontract/.env") });
 const RPC_URL = process.env.RPC_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const CONTRACT_PATH = path.join(
   os.homedir(),
-  "besu-network/smartcontract/contract/SimpleStorage.sol"
+  "Desktop/besu-network/smartcontract/contract/SimpleStorage.sol"
 );
 const ADDRESS_FILE = path.join(
   os.homedir(),
-  "besu-network/smartcontract/deploy/contract-address-int.json"
+  "Desktop/besu-network/smartcontract/deploy/contract-address-int.json"
 );
 // ==============================================
 

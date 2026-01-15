@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const os = require("os");
 
-require("dotenv").config({ path: path.join(os.homedir(), "besu-network/smartcontract/.env") });
+require("dotenv").config({ path: path.join(os.homedir(), "Desktop/besu-network/smartcontract/.env") });
 const RPC_URL = process.env.RPC_URL;
 
 // 🔥 주소 자동 로드
@@ -11,7 +11,7 @@ const RPC_URL = process.env.RPC_URL;
 
 const ADDRESS_FILE = path.join(
   os.homedir(),
-  "besu-network/smartcontract/deploy/contract-address-int.json"
+  "Desktop/besu-network/smartcontract/deploy/contract-address-int.json"
 );
 
 const addressData = JSON.parse(fs.readFileSync(ADDRESS_FILE, "utf8"));

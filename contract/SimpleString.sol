@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-contract SimpleStorage {
+contract SimpleString {
     string private storedData;
     event DataUpdated(string oldValue, string newValue);
 

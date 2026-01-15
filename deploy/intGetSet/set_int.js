@@ -3,18 +3,18 @@ const fs = require("fs");
 const readline = require("readline");
 const path = require("path");
 const os = require("os");
-const { logTransaction } = require(path.join(os.homedir(),"besu-network/smartcontract/utils/txLogger.js"));
-require("dotenv").config({ path: path.join(os.homedir(), "besu-network/smartcontract/.env") });
+const { logTransaction } = require(path.join(os.homedir(),"Desktop/besu-network/smartcontract/utils/txLogger.js"));
+require("dotenv").config({ path: path.join(os.homedir(), "Desktop/besu-network/smartcontract/.env") });
 const RPC_URL = process.env.RPC_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const LOG_FILE =path.join(
   os.homedir(),
-  "besu-network/smartcontract/logs/int-set-log.txt"
+  "Desktop/besu-network/smartcontract/logs/int-set-log.txt"
 );
 // 🔥 주소 자동 로드
 const ADDRESS_FILE = path.join(
   os.homedir(),
-  "besu-network/smartcontract/deploy/contract-address-int.json"
+  "Desktop/besu-network/smartcontract/deploy/contract-address-int.json"
 );
 
 const addressData = JSON.parse(fs.readFileSync(ADDRESS_FILE, "utf8"));
