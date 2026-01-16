@@ -11,10 +11,10 @@ const ADDRESS_FILE = path.join(
   "Desktop/besu-network/smartcontract/deploy/contract-address-string.json"
 );
 const CHUNK_SIZE = 5000;
-// 🔥 JSON 읽기
+// JSON 읽기
 const addressData = JSON.parse(fs.readFileSync(ADDRESS_FILE, "utf8"));
 
-// 🔥 실제 컨트랙트 주소
+// 실제 컨트랙트 주소
 const CONTRACT_ADDRESS = addressData.SimpleStorage;
 // ABI는 반드시 event 포함된 JSON 사용
 const ABI_PATH = path.join(
