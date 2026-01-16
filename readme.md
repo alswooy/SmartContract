@@ -13,32 +13,40 @@
 ---
 
 ## 📁 프로젝트 구조
-
+```
 smartcontract/
 ├─ abi/
-│ └─ SimpleInt.json
-│ └─ SimpleString.json
+│ ├─ SimpleInt.json
+│ ├─ SimpleString.json
 │ └─ SimpleMap.json
 ├─ contract/
 │ ├─ SimpleInt.sol
-│ └─ SimpleString.sol
+│ ├─ SimpleString.sol
 │ └─ SimpleMap.sol
 ├─ deploy/
 │ ├─ deploy_int.js
 │ ├─ deploy_string.js
+│ ├─ deploy_map.js
 │ ├─ contract-address-int.json
-│ └─ contract-address-string.json
+│ ├─ contract-address-string.json
+│ └─ contract-address-map.json
 ├─ getSet/
-│ ├─ get_int.js
-│ ├─ set_int.js
-│ ├─ get_string.js
-│ ├─ set_string.js
-│ └─ get_map.js
+│ ├─int/
+│ ├─├─get_int.js
+│ └─└─set_int.js
+│ ├─string/
+│ ├─├─get_string.js
+│ └─└─set_string.js
+│ ├─map/
+│ ├─├─get_map.js
+│ └─└─set_map.js
 ├─ logs/
 │ └─ *.log
+├─ utils/
+│ └─ txLogger.js
 ├─ .env
 └─ README.md
-
+```
 ---
 
 ## ⚙️ 사전 준비
@@ -53,7 +61,7 @@ node -v
 npm install
 ```
 🔐 환경 변수 설정 (.env)
-.env 파일은 절대 Git에 커밋하지 않습니다.
+  .env 파일은 절대 Git에 커밋하지 않습니다.
 
 📄 .env 예시
 env
@@ -62,8 +70,9 @@ env
 RPC_URL=http://주소:8545
 PRIVATE_KEY=0xYOUR_PRIVATE_KEY
 ```
-RPC_URL : Besu RPC 엔드포인트
-PRIVATE_KEY : createAccount.js에서 나온 트랜잭션 서명에 사용할 EOA 개인키
+  - RPC_URL : Besu RPC 엔드포인트
+
+  - PRIVATE_KEY : createAccount.js에서 나온 트랜잭션 서명에 사용할 EOA 개인키
 
 🚀 스마트컨트랙트 배포
 🔹 Int 타입 컨트랙트 배포
@@ -95,7 +104,7 @@ deploy/contract-address-int.json
 deploy/contract-address-string.json
 deploy/contract-address-map.json
 ```
-이후 get / set 스크립트는 이 파일을 자동으로 읽어 컨트랙트 주소를 사용합니다.
+ 이후 get / set 스크립트는 이 파일을 자동으로 읽어 컨트랙트 주소를 사용합니다.
 
 📥 값 조회 (get)
 ```
@@ -121,6 +130,7 @@ node getSet/set_map.js
 실행 시 콘솔에서 값을 직접 입력합니다.
 
 set()에 저장할 값을 입력하세요: Test
+
 입력한 값은 트랜잭션으로 전송됩니다.
 
 블록에 포함되며 이벤트 및 로그가 생성됩니다.
