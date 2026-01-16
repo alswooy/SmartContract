@@ -108,11 +108,11 @@ deploy/contract-address-map.json
 
 📥 값 조회 (get)
 ```
-🔹 int 값 조회
+# 🔹 int 값 조회
 node getSet/int/get_int.js
-🔹 string 값 조회
+# 🔹 string 값 조회
 node getSet/string/get_string.js
-🔹 map 값 조회
+# 🔹 map 값 조회
 node getSet/map/get_map.js
 ```
 get은 eth_call 기반으로 실행되며
@@ -120,11 +120,11 @@ get은 eth_call 기반으로 실행되며
 
 📤 값 저장 (set)
 ```
-🔹 int 값 저장
+# 🔹 int 값 저장
 node getSet/int/set_int.js
-🔹 string 값 저장
+# 🔹 string 값 저장
 node getSet/string/set_string.js
-🔹 map 값 저장
+# 🔹 map 값 저장
 node getSet/map/set_map.js
 ```
 실행 시 콘솔에서 값을 직접 입력합니다.
