@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 require("dotenv").config({ path: path.join(os.homedir(), "Desktop/besu-network/smartcontract/.env") });
 const RPC_URL = process.env.RPC_URL;
 
-// 🔥 1. 컨트랙트 주소 로드 (Map 버전 파일)
+// 1. 컨트랙트 주소 로드 (Map 버전 파일)
 const ADDRESS_FILE = path.join(
   os.homedir(),
   "Desktop/besu-network/smartcontract/deploy/contract-address-map.json"
@@ -26,7 +26,7 @@ const addressData = JSON.parse(fs.readFileSync(ADDRESS_FILE, "utf8"));
 // JSON 구조가 { ContractName:..., Address:..., ... } 형태이므로 Address 필드 사용
 const CONTRACT_ADDRESS = addressData.Address; 
 
-// 🔥 2. SimpleMap ABI 로드 (새로 만든 json 파일)
+// 2. SimpleMap ABI 로드 (새로 만든 json 파일)
 const ABI_PATH = path.join(
   os.homedir(), // 경로가 복잡하면 절대경로로 잡는 것이 안전합니다.
   "Desktop/besu-network/smartcontract/abi/SimpleMap.json"
@@ -45,7 +45,7 @@ async function main() {
     // const searchKey = process.argv[2];
 
     // if (!searchKey) {
-    //     console.log("⚠️  조회할 Key를 입력해주세요!");
+    //     console.log("   조회할 Key를 입력해주세요!");
     //     console.log("   사용법: node get_map_value.js <MyKey>");
     //     process.exit(0);
     // }

@@ -8,21 +8,21 @@ const { logTransaction } = require(path.join(os.homedir(),"Desktop/besu-network/
 require("dotenv").config({ path: path.join(os.homedir(), "Desktop/besu-network/smartcontract/.env") });
 const RPC_URL = process.env.RPC_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
-const LOG_FILE =path.join(
-  os.homedir(),
-  "Desktop/besu-network/smartcontract/logs/string-set-log.txt"
+const LOG_FILE = path.join(
+    os.homedir(),
+    "Desktop/besu-network/smartcontract/logs/string-set-log.txt"
 );
-// 🔥 컨트랙트 주소 자동 로드
+// 컨트랙트 주소 자동 로드
 const ADDRESS_FILE = path.join(
-  os.homedir(),
-  "Desktop/besu-network/smartcontract/deploy/contract-address-string.json"
+    os.homedir(),
+    "Desktop/besu-network/smartcontract/deploy/contract-address-string.json"
 );
 
 const addressData = JSON.parse(fs.readFileSync(ADDRESS_FILE, "utf8"));
 const CONTRACT_ADDRESS = addressData.SimpleStorage;
 const ABI_PATH = path.join(
-  __dirname,
-  "..", "..", "..", "smartcontract", "abi", "SimpleString.json"
+    __dirname,
+    "..", "..", "..", "smartcontract", "abi", "SimpleString.json"
 );
 const ABI = JSON.parse(fs.readFileSync(ABI_PATH, "utf8"));
 
@@ -33,7 +33,7 @@ const rl = readline.createInterface({
 async function main() {
     const web3 = new Web3(RPC_URL);
 
-    // ✅ 계정 생성 (Web3 v4 정석)
+    // 계정 생성 (Web3 v4 정석)
     const account = web3.eth.accounts.privateKeyToAccount(PRIVATE_KEY);
     web3.eth.accounts.wallet.add(account);
 
@@ -60,13 +60,13 @@ async function main() {
             console.log("🆕 새로운 값:", newValue);
 
             await logTransaction({
-              web3,
-              receipt,
-              from: account.address,
-              value: newValue, // 🔥 string
-              logFile: LOG_FILE,
-              label: "🗂️ Set String -",
-              contractAddress: CONTRACT_ADDRESS
+                web3,
+                receipt,
+                from: account.address,
+                value: newValue,
+                logFile: LOG_FILE,
+                label: "🗂️ Set String -",
+                contractAddress: CONTRACT_ADDRESS
             });
             const stored = await contract.methods.get().call();
             console.log("📊 Current value:", stored);

@@ -9,13 +9,13 @@ require("dotenv").config({ path: path.join(os.homedir(), "Desktop/besu-network/s
 const RPC_URL = process.env.RPC_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
-// 🔥 로그 파일 경로 변경 (Map 전용 로그)
+// 로그 파일 경로 변경 (Map 전용 로그)
 const LOG_FILE = path.join(
   os.homedir(),
   "Desktop/besu-network/smartcontract/logs/map-set-log.txt"
 );
 
-// 🔥 1. 컨트랙트 주소 로드 (Map 버전)
+// 1. 컨트랙트 주소 로드 (Map 버전)
 const ADDRESS_FILE = path.join(
   os.homedir(),
   "Desktop/besu-network/smartcontract/deploy/contract-address-map.json"
@@ -31,7 +31,7 @@ const addressData = JSON.parse(fs.readFileSync(ADDRESS_FILE, "utf8"));
 // SimpleMap 배포 시 JSON 키가 "Address"로 저장되도록 했으므로 이를 사용
 const CONTRACT_ADDRESS = addressData.Address; 
 
-// 🔥 2. SimpleMap ABI 로드
+// 2. SimpleMap ABI 로드
 const ABI_PATH = path.join(
   os.homedir(), // 절대 경로 사용 권장
   "Desktop/besu-network/smartcontract/abi/SimpleMap.json"
@@ -52,7 +52,7 @@ const rl = readline.createInterface({
 async function main() {
     const web3 = new Web3(RPC_URL);
 
-    // ✅ 계정 생성
+    // 계정 생성
     const account = web3.eth.accounts.privateKeyToAccount(PRIVATE_KEY);
     web3.eth.accounts.wallet.add(account);
 
@@ -61,15 +61,15 @@ async function main() {
 
     const contract = new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
 
-    // 🚀 [1단계] 키(Key) 입력 받기
+    // [1단계] 키(Key) 입력 받기
     rl.question("🔑 저장할 Key(x)를 입력하세요: ", (keyInput) => {
         
-        // 🚀 [2단계] 값(Value) 입력 받기
+        // [2단계] 값(Value) 입력 받기
         rl.question(`📝 '${keyInput}'에 저장할 Value(y)를 입력하세요: `, async (valInput) => {
             try {
                 console.log(`\n📤 Calling set("${keyInput}", "${valInput}")...`);
 
-                // 🚀 [3단계] 트랜잭션 전송 (인자 2개)
+                // [3단계] 트랜잭션 전송 (인자 2개)
                 const receipt = await contract.methods.set(keyInput, valInput).send({
                     from: account.address,
                     gas: 500000, // 연산량이 늘어났으므로 가스 한도를 넉넉히 설정
